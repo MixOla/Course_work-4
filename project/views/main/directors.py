@@ -22,8 +22,8 @@ class DirectorsView(Resource):
 class DirectorView(Resource):
     @api.response(404, 'Not Found')
     @api.marshal_with(director, code=200, description='OK')
-    def get(self, genre_id: int):
+    def get(self, director_id: int):
         """
         Get director by id.
         """
-        return director_service.get_item(genre_id)
+        return director_service.get_item(director_id)
