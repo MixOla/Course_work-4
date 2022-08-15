@@ -18,7 +18,16 @@ movie: Model = api.model('Фильм', {
     'description': fields.String(required=True, max_length=255, example='Владелец ранчо'),
     'trailer': fields.String(required=True, max_length=255, example='https://www.youtubeн'),
     'year': fields.Integer(required=True, example=2018),
-    'rating': fields.Integer(required=True, example=8.6),
-    'genre_id': fields.Integer(required=True, example=17),
-    'director_id': fields.Integer(required=True, example=1),
+    'rating': fields.Float(required=True, example=8.6),
+    'genre': fields.Nested(genre),
+    'director': fields.Nested(director),
+})
+
+user: Model = api.model('Пользователь', {
+    'id': fields.Integer(required=True, example=1),
+    'email': fields.String(required=True, max_length=255, example='hj@jkv'),
+    'password': fields.String(required=True, max_length=255, example='fgh456'),
+    'name': fields.String(required=True, max_length=255, example='Petya'),
+    'surname': fields.String(required=True, max_length=255, example='Smith'),
+    'favourite_genre': fields.Nested(genre)
 })

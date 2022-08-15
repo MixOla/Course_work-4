@@ -1,5 +1,5 @@
 from flask_restx import Namespace, Resource
-
+from flask import request
 from project.container import movie_service
 from project.setup.api.models import movie
 from project.setup.api.parsers import page_parser
@@ -15,6 +15,10 @@ class MoviesView(Resource):
         """
         Get all movies.
         """
+        status = request.args.get("status")
+        if status and status=='new':
+            movie_service.get_all_order_by(filter=status, **page_parser.parse_args())
+
         return movie_service.get_all(**page_parser.parse_args())
 
 
