@@ -46,7 +46,6 @@ class LoginView(Resource):
 
         if data.get('access_token') and data.get('refresh_token'):
             return user_service.update_token(access_token=data.get('access_token'),
-                                             refresh_token=data.get('refresh_token')), 200
-
+                                         refresh_token=data.get('refresh_token')), 200
         else:
             return "Что-то пошло не так", 401
