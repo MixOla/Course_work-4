@@ -20,6 +20,9 @@ class RegistersView(Resource):
 
     @api.marshal_with(user, as_list=True, code=200, description='OK')
     def patch(self):
+        """
+        Update user.
+        """
         token = request.headers["Authorization"].split("Bearer ")[-1]
         data = request.json
 
@@ -30,7 +33,7 @@ class LoginView(Resource):
     @api.marshal_with(user, as_list=True, code=200, description='OK')
     def put(self):
         """
-        Update_token
+        Update token
         """
         data = request.json
         token = request.headers["Authorization"].split("Bearer ")[-1]

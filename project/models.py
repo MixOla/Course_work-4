@@ -40,3 +40,4 @@ class User(models.Base):
     surname = Column(String(255))
     favourite_genre = Column(Integer, ForeignKey("genres.id"))
     genre = relationship("Genre")
+

@@ -40,7 +40,7 @@ class LoginView(Resource):
 
     def put(self):
         """
-        Update_token user.
+        Update token user.
         """
         data = request.json
 
